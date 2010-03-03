@@ -63,7 +63,8 @@ module Integrity
     # Assume the project stores for each failed scenario a PNG screenshot in tmp/
     def screenshots
       Dir.glob("builds/#{id}/tmp/*.png").collect do |filename|
-        "/#{project.name}/#{filename}".gsub("/tmp/", "/screenshots/")
+        filename.gsub("builds/#{id}/tmp/", "screenshots/")
+#        "#{project_path(project)}/#{filename}".gsub("/tmp/", "/screenshots/")
       end
     end
 
