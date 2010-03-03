@@ -32,6 +32,7 @@ module Integrity
           :committed_at => metadata["timestamp"]
         }
       )
+      `cd #{repo.directory} && rm build.txt`
     end
 
     def complete
@@ -47,7 +48,7 @@ module Integrity
     end
 
     def run
-      cmd = "(cd #{repo.directory} && #{@build.project.command} 2>&1)"
+      cmd = "(cd #{repo.directory} && #{@build.project.command} 2>&1 | tee build.txt)"
       IO.popen(cmd, "r") { |io| @output = io.read }
       @status = $?.success?
     end
