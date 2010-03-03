@@ -1,3 +1,6 @@
+source "http://gems.rubyforge.org"
+source "http://gemcutter.org"
+
 gem "dm-core", "0.10.2"
 gem "dm-timestamps", "0.10.2"
 gem "dm-types", "0.10.2"
@@ -34,7 +37,7 @@ gem "sinatra-authorization", "1.0.0"
 # gem "resque"
 
 # = Development dependencies.
-only :test do
+group :test do
   source "http://gems.github.com"
   gem "ruby-debug"
   gem "sqlite3-ruby"
