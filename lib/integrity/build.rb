@@ -54,5 +54,11 @@ module Integrity
       when :building then "#{commit.short_identifier} is building"
       end
     end
+
+    def human_duration
+      return if pending? || building?
+      ChronicDuration.output((completed_at.to_time.to_i - started_at.to_time.to_i), :format => :micro)
+    end
+
   end
 end
