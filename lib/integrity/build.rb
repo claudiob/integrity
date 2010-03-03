@@ -59,6 +59,13 @@ module Integrity
       return if pending? || building?
       ChronicDuration.output((completed_at.to_time.to_i - started_at.to_time.to_i), :format => :micro)
     end
+    
+    # Assume the project stores for each failed scenario a PNG screenshot in tmp/
+    def screenshots
+      Dir.glob("builds/#{id}/tmp/*.png").collect do |filename|
+        "/#{project.name}/#{filename}".gsub("/tmp/", "/screenshots/")
+      end
+    end
 
   end
 end

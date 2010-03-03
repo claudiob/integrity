@@ -1,2 +1,10 @@
 #build{ :class => @build.status }
   = partial(:build_info, :build => @build)
+
+- unless @build.screenshots.empty?
+  %ul#screenshots
+    - @build.screenshots.each do |screenshot|
+      %li
+        %a{:href => screenshot}
+          %img{:src => screenshot}
+

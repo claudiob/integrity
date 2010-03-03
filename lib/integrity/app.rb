@@ -143,5 +143,13 @@ module Integrity
       current_build.destroy!
       redirect url
     end
+
+    # Assume the project stores for each failed scenario a PNG screenshot in tmp/
+    get "/:project/builds/:build/screenshots/:name" do |project, build, name|
+      login_required unless current_project.public?
+      content_type 'image/png'
+      File.open(File.expand_path("../../../builds/#{build}/tmp/#{name}", __FILE__)).read()
+    end
+
   end
 end
