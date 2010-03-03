@@ -1,5 +1,7 @@
 source :gemcutter
+source "http://gems.rubyforge.org"
 
+gem "chronic_duration", "0.8.0"
 gem "dm-core", "0.10.2"
 gem "dm-timestamps", "0.10.2"
 gem "dm-types", "0.10.2"

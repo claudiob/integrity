@@ -25,4 +25,4 @@
             %strong.build<
               &== Build #{build.commit.short_identifier}
             %span.attribution<
-              == by #{build.commit.author.name}, #{pretty_date build.commit.committed_at}
+              &== by #{build.commit.author.name}, #{pretty_date build.commit.committed_at}, built in #{build.human_duration}
