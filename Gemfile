@@ -1,5 +1,4 @@
-source "http://gems.rubyforge.org"
-source "http://gemcutter.org"
+source :gemcutter
 
 gem "dm-core", "0.10.2"
 gem "dm-timestamps", "0.10.2"
@@ -36,6 +35,10 @@ gem "sinatra-authorization", "1.0.0"
 # = Dependency for the :resque builder
 # gem "resque"
 
+# Uncomment if you're using pg or mysql instead of sqlite
+# gem "pg"
+# gem "mysql"
+
 # = Development dependencies.
 group :test do
   source "http://gems.github.com"
@@ -53,13 +56,12 @@ group :test do
   gem "rumbster"
   gem "nokogiri"
   gem "hpricot"
-  gem "jeremymcanally-pending"
-  gem "jeremymcanally-context"
-  gem "foca-storyteller"
+  gem "contest"
   gem "webrat"
   gem "shout-bot"
   gem "sinatra-ditties"
   gem "broach", :git => "git://github.com/Manfred/broach.git"
   gem "nap", :git => "git://github.com/qrush/nap.git"
   gem "webmock"
+  gem "turn"
 end
