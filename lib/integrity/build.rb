@@ -28,21 +28,21 @@ module Integrity
       !successful?
     end
 
-    def current_output
-      return output if !completed_at.nil? || pending?
-      begin
-        File.open(File.join(Repository.new(project.uri, project.branch, commit.identifier).directory,'/build.txt'), "r") { |f| f.read }
-      rescue Errno::ENOENT
-        "Whoops: #{output}"
-      end
-    end
-
     def status
       case
       when pending?    then :pending
       when building?   then :building
       when successful? then :success
       when failed?     then :failed
+      end
+    end
+
+    def current_output
+      return output if !completed_at.nil? || pending?
+      begin
+        File.open(File.join(Repository.new(id, project.uri, project.branch, commit.identifier).directory,'/build.txt'), "r") { |f| f.read }
+      rescue Errno::ENOENT
+        "Whoops: #{output}"
       end
     end
 

@@ -32,7 +32,7 @@ module Integrity
           :committed_at => metadata["timestamp"]
         }
       )
-      `cd #{repo.directory} && rm build.txt`
+      `cd #{repo.directory} && rm -f build.txt`
     end
 
     def complete
